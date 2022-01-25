@@ -1,5 +1,5 @@
 var parameters = new URLSearchParams(window.location.search);
-
+var activeHeart = document.getElementById("activeheart");
 var inputs = {
   Rest: parseInt(parameters.get("rest")),
   Smoke: parseInt(parameters.get("smoke")),
@@ -30,7 +30,9 @@ function predict(){
 
         var result = results[0];
         // We have a prediction
-        console.log(result);
+        activeHeart.innerHTML = result.Active;
+         console.log(result);
+        
     });
 }
 neuralNetwork.load(modelDetails, predict);
